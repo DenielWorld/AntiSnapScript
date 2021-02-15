@@ -1,0 +1,18 @@
+initialize(
+    //More settings are available, but they are not described here to show how the settings values
+    //can utilize Snap's default values when not utilized within initialization.
+    name: "Sprite"
+)
+
+//Listening for when the space key is pressed
+listen.receiveKey("space"){
+    var example = xPosition()
+    down()
+    if(5 > 4){
+        forever{
+            forward(1)
+            var dir = direction()
+            setHeading(dir + 1)
+        }
+    }
+}

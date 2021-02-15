@@ -1,0 +1,39 @@
+initialize(
+    //The name of your stage goes below. (This is a comment and is ignored by the parser)
+    name: "Stage"
+    //The width and height of your stage.
+    width: 480
+    height: 360
+    //The color of your stage in an RGBA format
+    color: [255, 255, 255, 1]
+    tempo: 60
+    volume: 100
+)
+
+//Formatting Rules: The only allowed var types are public and private, script vars are identified
+//by default and no other types are available.
+//Variable declaration statements with multiple variables that feature at least one list MUST NOT have
+//any other variable types. Booleans, strings, and integers can safely be declared within one
+//variable declaration statement.
+
+//The variables declared outside of the scripting/listening scope must be public or private.
+//The default values are optional, without them we use Snap's default of 0.
+public var a, b, c, d = ["o", "e"], ["another array", "muahahahah"], [], []
+
+//Listeners are control blocks which can 'listen' for certain events, i.e. code starting or key
+//being received.
+listen.receiveGo{
+    //Variables in the scripting/listening scope can utilize the public and private keywords
+    //to access the variables from the global scope. Without the keywords, you will be using a
+    //script variable.
+    public var a, b, c = ["Hello World"], ["epic list"], ["o"]
+
+    //This is a script variable.
+    var d = "a"
+
+    public var a = 890
+}
+
+listen.receiveKey("s"){
+    var hello = "oop"
+}
