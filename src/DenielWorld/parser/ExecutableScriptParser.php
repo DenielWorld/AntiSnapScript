@@ -112,6 +112,14 @@ class ExecutableScriptParser extends Parser{
         return "undefined";
     }
 
+    public static function isEvaluative(string $codeSequence) : bool{
+        return
+            is_int(strpos($codeSequence, ">")) ||
+            is_int(strpos($codeSequence, "==")) ||
+            is_int(strpos($codeSequence, "<")) ||
+            self::getOperatorBlock($codeSequence) !== "undefined";
+    }
+
     /**
      * @param string $codeSequence
      * @param array $scriptVars

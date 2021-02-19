@@ -144,7 +144,7 @@ class VariableDeclarationParser extends Parser
             }
         } elseif (is_int(strpos($data, "(")) && is_int(strpos($data, ")")) && $this->insideListener) {
             return ExecutableScriptParser::parseExecutableStatement($data, $this->getDeclaredScriptVars(), $this->parentParser);
-        } elseif (is_int(strpos($this->getCodeSequence(), ">")) || is_int(strpos($this->getCodeSequence(), "==")) || is_int(strpos($this->getCodeSequence(), "<"))) {
+        } elseif (ExecutableScriptParser::isEvaluative($this->getCodeSequence())) {
             if (is_int(strpos($this->getCodeSequence(), "=="))) $data = substr($this->getCodeSequence(), strpos($this->getCodeSequence(), "=") + 1);
             return ExecutableScriptParser::evaluateOperators($data, $this->getDeclaredScriptVars(), $this->parentParser);
         }
