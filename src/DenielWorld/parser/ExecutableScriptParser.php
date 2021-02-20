@@ -82,7 +82,7 @@ class ExecutableScriptParser extends Parser{
         $new = "";
         for($i = 0; $i < $len; $i++){
             $sub = $codeSequence[$i];
-            if(is_numeric($sub))
+            if(is_numeric($sub) || $sub === ".")
                 continue;
             if($sub === '"'){
                 $stringOpen = !$stringOpen;
